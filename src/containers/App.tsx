@@ -6,30 +6,24 @@ import DevTools from 'mobx-react-devtools';
 import 'react-toolbox/lib/commons.scss';
 
 import Test from './Test';
-import {TimerStore} from '../store';
+import { TimerStore } from '../store';
 
 class RootStore {
     @observable timerStore;
 
-    constructor(){
+    constructor() {
         this.timerStore = new TimerStore();
     }
 }
 const rootStore = new RootStore();
 
-class App extends React.Component<{}, {}> {
-    render() {
-        return (
-            <Provider rootStore={rootStore}>
-                <div>
-                    <Test />
-                    <DevTools />
-                </div>
-            </Provider>
-        );
-    }
+export default () => {
+    return (
+        <Provider rootStore={rootStore}>
+            <div>
+                <Test />
+                <DevTools />
+            </div>
+        </Provider>
+    )
 };
-
-
-export default () => <App />
-//export default () => <div>Hello Delaney!</div>
