@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'source-map',
@@ -18,7 +19,7 @@ module.exports = {
     // Output the bundled JS to dist/app.js
     output: {
         filename: 'bundle.js',
-        publicPath: '/dist',
+        publicPath: '/',
         path: path.resolve('dist')
     },
     resolve: {
@@ -41,6 +42,10 @@ module.exports = {
         ]
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            title:'Typescript->ES6->Babel->ES5 HotReload Boilerplate',
+            template:'config/index-template.ejs'
+        }),
         new ExtractTextPlugin('bundle.css', { allChunks: true }),
         new webpack.optimize.OccurenceOrderPlugin(),
         // Add the Webpack HMR plugin so it will notify the browser when the app code changes
