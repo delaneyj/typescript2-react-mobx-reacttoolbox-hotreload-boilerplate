@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "target": "es6",
+        "moduleResolution": "node",
+        "baseUrl": "src",
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "outDir":"ts-build",
+        "jsx": "preserve",
+        "types": [
+            "node"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
